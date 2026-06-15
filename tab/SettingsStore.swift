@@ -110,7 +110,7 @@ final class SettingsStore {
     }
 
     private init() {
-        modifierFlags = defaults.object(forKey: Keys.modifierFlags) as? UInt64 ?? CGEventFlags.maskAlternate.rawValue
+        modifierFlags = defaults.object(forKey: Keys.modifierFlags) as? UInt64 ?? (CGEventFlags.maskControl.rawValue | CGEventFlags.maskAlternate.rawValue | CGEventFlags.maskCommand.rawValue | CGEventFlags.maskShift.rawValue)
         cycleKeyCode = defaults.object(forKey: Keys.cycleKeyCode) as? Int ?? 48
         searchKeyCode = defaults.object(forKey: Keys.searchKeyCode) as? Int ?? 1
         useAccentTint = defaults.object(forKey: Keys.useAccentTint) as? Bool ?? true
